@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ご予約・お問い合わせ | musubi</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="script.js"></script>
+</head>
+<body class="contact-page">
+    <section class="contact">
+            <div class="heading-group">
+                <h2 class="main-title">Contact</h2>
+                <p class="sub-title">ご予約・お問い合わせ
+                </p>
+                <p class="lead-text">
+                    おふたりの想いや、まだ形になっていない理想など、<br>
+                    まずはお気軽にお聞かせください。
+                </p>
+            </div>
+
+            <div class="form-container">
+                <form action="#" method="post">
+                    <div class="form-group">
+                        <label class="form-label">お名前・フリガナ<span class="required">必須</span></label>
+                            <div class="name-inputs">
+                                <input type="text" name="name" class="form-input" placeholder="田中 結子" required>
+                                <input type="text" name="name_kana" class="form-input" placeholder="タナカ ユイコ" required>
+                            </div>                    
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">メールアドレス<span class="required">必須</span></label>
+                        <input type="email" name="email" class="form-input" placeholder="example@mail.com" required>
+                    </div>
+
+                     <div class="form-group">
+                        <label class="form-label">ご予約・お問合せ内容<span class="required">必須</span></label>
+                        
+                        <div class="select-wrapper">
+                            <select name="type" class="form-input">
+                                <option value="">選択してください</option>
+                                <option value="produce">※初回無料カウンセリングのご予約</option>
+                                <option value="plan">プラン内容について</option>
+                                <option value="value">費用や予算について</option>
+                                <option value="other">その他（自由入力）</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="form-group">
+                        <label class="form-label">ご希望の相談形式</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="consultation_style" value="online" checked> オンライン希望
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="consultation_style" value="face-to-face"> 対面（カフェ等）希望
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="consultation_style" value="either"> どちらでも可
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">挙式・撮影予定時期</label>
+                        <div class="select-wrapper">
+                            <select name="timing" class="form-input">
+                                <option value="">選択してください</option>
+                                <option value="3months">3ヶ月以内</option>
+                                <option value="6months">半年以内</option>
+                                <option value="1year">1年以内</option>
+                                <option value="undecided">未定（これから相談したい）</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">musubiを知ったきっかけ</label>
+                        <div class="select-wrapper">
+                            <select name="source" class="form-input">
+                                <option value="">選択してください</option>
+                                <option value="instagram">Instagram</option>
+                                <option value="search">Web検索</option>
+                                <option value="introduction">知人の紹介</option>
+                                <option value="other">その他</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">メッセージ（お悩みやご要望）</label>
+                        <textarea name="message" class="form-input memo-style" placeholder="「予算を抑えたい」「持ち込みたいアイテムがある」「家族だけで静かに行いたい」など、自由にご記入ください。"></textarea>
+                    </div>
+
+                    <div class="form-submit">
+                        <div class="agreement-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="agreement" required>
+                                <a href="#" class="text-link">個人情報の取り扱い</a>に同意する
+                            </label>
+                        </div>
+                        
+                        <p class="free-note">※初回無料カウンセリング。費用は一切かかりません。お気軽にご相談ください。</p>
+                        
+                        <button type="submit" class="submit-btn">
+                            入力内容を確認する 》
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="back-link">
+                <a href="index.html">← トップページへ戻る</a>
+            </div>
+    </section>
+</body>
+
+</html>

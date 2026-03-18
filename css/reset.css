@@ -1,0 +1,74 @@
+
+/*! destroy.css v1.1.1 | MIT License | https://github.com/krestensb/destroy.css */
+
+/* 1. 全ての要素のボックスモデルを border-box に統一 */
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+/* 2. マージン、パディング、境界線のリセット */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* 3. フォントの平滑化と文字サイズの調整 */
+html {
+  -webkit-text-size-adjust: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 4. リストのスタイル削除（ドットや数字を消す） */
+ol, ul {
+  list-style: none;
+}
+
+/* 5. 引用符の表示をリセット */
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+/* 6. 表の境界線を結合 */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* 7. フォーム要素のデフォルトスタイルをリセット */
+input, select, textarea, button {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: transparent;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/* 8. ボタンのカーソルをポインターに */
+button, [type="button"], [type="reset"], [type="submit"] {
+  cursor: pointer;
+}
+
+/* 9. 画像などのインライン要素の下にできる隙間を解消 */
+img, svg, video, canvas, audio, iframe, embed, object {
+  display: block;
+  vertical-align: middle;
+  max-width: 100%;
+}
+
+/* 10. リンクのアンダーラインを削除（必要に応じて後で追加） */
+a {
+  text-decoration: none;
+  color: inherit;
+}
