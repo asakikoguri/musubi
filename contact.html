@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ご予約・お問い合わせ | musubi</title>
+    <title>Contact | musubi</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Zen+Maru+Gothic&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="css/style.css">
-    <script src="script.js"></script>
+
 </head>
 <body class="contact-page">
     <section class="contact">
@@ -26,11 +26,12 @@
 
             <div class="form-container">
                 <form action="https://formspree.io/f/mlgpargn" method="POST">
+                    <input type="hidden" name="_next" value="https://musubi-m13c5l7yp-asakikoguri-1717s-projects.vercel.app/thanks.html">
                     <div class="form-group">
                         <label class="form-label">お名前・フリガナ<span class="required">必須</span></label>
                             <div class="name-inputs">
-                                <input type="text" name="name" class="form-input" placeholder="田中 結子" required>
-                                <input type="text" name="name_kana" class="form-input" placeholder="タナカ ユイコ" required>
+                                <input type="text" name="name" id="name" class="form-input" placeholder="田中 結子" required>
+                                <input type="text" name="name_kana" id="name_kana" class="form-input" placeholder="タナカ ユイコ" inputmode="katakana" required>
                             </div>                    
                     </div>
 
@@ -121,6 +122,11 @@
                 <a href="index.html">← トップページへ戻る</a>
             </div>
     </section>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-autokana@1.1.0/dist/autokana.min.js"></script>
+    <script src="js/script.js"></script>
 </body>
+
 
 </html>

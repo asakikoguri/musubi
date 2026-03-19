@@ -32,7 +32,7 @@ body {
 }
 
 section {
-    width: 100vw;
+    width: 100%;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -122,7 +122,7 @@ section {
 
 
 .nav-menu a.is-active {
-    color: #386d65 !important;
+    color: #386d65;
     opacity: 1;
 }
 
@@ -452,7 +452,9 @@ section {
 
 
 
-
+.btn-wrapper {
+    display: none;
+}
 
 
 
@@ -536,7 +538,7 @@ section {
 .style-item.is-visible {
     opacity: 1;
     transform: translateY(0);
-    margin-top: 25px;
+    margin: 25px auto;
 }
 
 
@@ -1178,7 +1180,7 @@ section {
     border-radius: 8px;
     background-color: #fcfcfc;
     font-size: 16px;
-    color: #999;
+    ccolor: #333;
     transition: all 0.3s;
     box-sizing: border-box; 
 }
@@ -1188,6 +1190,29 @@ section {
     border-color: #d8eadc;
     background-color: #fff;
     box-shadow: 0 0 10px rgba(216, 234, 220, 0.5);
+    color: #222; /* ここでさらに濃い色を指定 */
+}
+
+.form-input::placeholder {
+    color: #ccc; /* 入力していない時はこの薄い色に見えます */
+    opacity: 1;  /* Firefox対策 */
+}
+
+select.form-input:invalid {
+    color: #ccc;
+}
+/* 選択した後は濃くする */
+select.form-input {
+    color: #333;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #d8eadc;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(216, 234, 220, 0.5);
+    /* focus時ももちろん濃いまま */
+    color: #000; 
 }
 
 .select-wrapper {
@@ -1254,7 +1279,7 @@ select.form-input {
 
 .back-link {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .back-link a {
@@ -1363,6 +1388,100 @@ select.form-input {
     flex: 1;            /* 2つの入力欄を同じ幅にする */
 }
 
+
+
+
+
+
+/* --- サンクスページ専用スタイル --- */
+.thanks-page {
+
+    /* --- 1. ここが重要！ブラウザの初期余白をリセット --- */
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #f9ffcc 0%, #ffffff 50%, #b3e5fc 100%);
+}
+
+.thanks {
+    /* /* width: 100%;  */
+    /* display: block; */ 
+    text-align: center;
+    /* padding: 20px; */
+}
+
+.thanks-container {
+    margin: 0 auto; 
+    /* max-width: 800px; */
+    width: 100%;
+    padding: 40px;
+    box-sizing: border-box;
+}
+
+.thanks .main-title {
+    /* margin-bottom: 10px; */
+    font-size: 4rem;
+    font-family: auto;
+    /* font-weight: 400;
+    letter-spacing: 0.1em;
+    color: transparent;
+    -webkit-text-stroke: 0.9px #6d6d6d;
+    text-stroke: 1.2px #676767; */
+}
+
+.thanks .sub-title {
+    font-size: 1.2rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 60px;
+    font-family: none;
+}
+
+.thanks-br {
+    display: none;
+}
+
+.message-group {
+    margin-bottom: 80px;
+}
+
+.thanks .lead-text {
+    font-size: 1.4rem;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.thanks .note-text {
+    font-size: 1rem;
+    color: #9b9b9b;
+    line-height: 1.8;
+    font-family: none;
+}
+
+.home-btn {
+    display: inline-block;
+    padding: 15px 50px;
+    text-decoration: none;
+}
+
+
+
+.st-br {
+    display: none;
+}
+
+
+.st-span-sp {
+    display: none;
+}
+
+
+.sp-about {
+    display: none;
+}
 
 
 
@@ -1684,7 +1803,7 @@ select.form-input {
     }
 
 
-        .style-br {
+    .style-br {
         display: block;
     }
 
@@ -1754,7 +1873,12 @@ select.form-input {
 
     .scroll-line {
         height: 250px;
+        z-index: 100;
     }
+
+   
+
+
 
 
 }
@@ -1774,7 +1898,7 @@ select.form-input {
         right: -100%; 
         width: 100%;
         height: 100vh;
-        background: linear-gradient(to right, #f6fcee, #fff);
+        background-color: #f6fceed4;  
         z-index: 9998;
         transition: all 0.5s ease;
 
@@ -1785,6 +1909,162 @@ select.form-input {
         padding-right: 40px;      /* ★右端に心地よい余白を作る */
         
     }
+
+    .pc-about {
+        display: none; 
+    }
+    
+    .sp-about {
+        display: block; 
+    }
+
+    .sp-br {
+        display: block;
+    }
+
+    /* 「home」クラスがついている時（トップページ）だけ非表示にする */
+        .home #about, 
+        .home #about-us {
+            display: none !important;
+        }
+
+        /* about.html（単体ページ）では表示されるように上書き */
+        #about-us {
+            display: block !important; /* 強制的に表示 */
+            padding: 60px 20px;       /* スマホ用の余白 */
+        }
+
+        /* 3列並びの事例カードを1列（縦並び）にする */
+        .episode-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+        .btn-wrapper {
+            display: flex;
+            justify-content: center;
+            
+        }
+
+        body:not(.home) #about-us { display: flex !important; }
+
+
+
+        .back-home-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            border: 1px solid #ccc;
+            color: #888;
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            background: #fff;
+        }
+
+        .back-home-btn:hover {
+            background: #f9f9f9;
+            color: #444;
+            border-color: #999;
+        }
+
+    #about {
+        scroll-margin-top: 100px; /* ヘッダーの高さ＋少しの余裕 */
+    }
+
+
+    .about-page-bottom {
+        text-align: center;
+        padding: 30px 20px; /* 前後の余白をたっぷり取る */
+        background-color: #fff; /* 背景は白のまま、余白で区切る */
+    }
+
+    .btn-back {
+        display: inline-block;
+        padding: 18px 60px;
+        font-size: 13px;
+        color: #888;
+        text-decoration: none;
+        border: 1px solid #ccc; /* 非常に薄い線で上品に */
+        letter-spacing: 0.2em;
+        transition: all 0.4s ease;
+        position: relative;
+        border-radius: 50px;
+    }
+
+    /* ホバー時に少しだけ線を濃く、文字を浮かせる */
+    .btn-back:hover {
+        border-color: #ccc;
+        color: #444;
+        transform: translateY(-2px);
+    }
+
+    /* スマホでの調整 */
+    @media screen and (max-width: 768px) {
+        .about-page-bottom {
+            padding: 80px 20px;
+        }
+        .btn-back {
+            width: 100%;
+            max-width: 280px;
+            box-sizing: border-box;
+        }
+    }
+
+
+
+
+    /* スクロール位置の微調整（ヘッダーに被らないように） */
+    .area-anchor:target {
+        padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
+        margin-top: -100px;
+    }
+
+    .plan-section.panel {
+        padding-top: 150px;
+    }
+
+
+
+    .schedule {
+        margin-bottom: 50px;
+    }
+
+    .timeline {
+        margin: 100px auto;
+        padding: left;
+    } 
+
+    /* .timeline-line {
+        left: -30px;
+    } */
+
+     .plan-flex-container {
+        margin: 10px auto 30px;
+    }
+
+    .swiper-pagination {
+        margin-top: 15px;
+    }
+
+
+    .btn-wrapper {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        background: #fff;
+    }
+
+    .concept-btn {
+        display: inline-block;
+        padding: 25px 50px;
+        border-radius: 100px;
+        text-decoration: none;
+        font-size: 16px;
+        background: linear-gradient(to bottom, #f6fcee, #e0f4f2);
+        transition: opacity 0.3s;
+        margin: 50px auto 30px;
+    }
+
 
     .sp-menu.is-active {
         right: 0;
@@ -1805,9 +2085,9 @@ select.form-input {
     /* 3. 白抜き文字のデザイン（.hero-logoの仕様を反映） */
     .sp-menu a {
         text-decoration: none;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: 400;
-        letter-spacing: 0.1em;
+       letter-spacing: 0.18em;
         
         transition: all 0.3s ease;
         display: block;
@@ -1816,19 +2096,19 @@ select.form-input {
 
     .sp-menu a:active {
         color: rgba(151, 151, 151, 0.1);
-        -webkit-text-stroke: 0.9px #398f82;
+        -webkit-text-stroke: 0.9px #d3d3d3;
     }
 
 
     .nav-menu a.is-active::after {
-        background-color: linear-gradient(to bottom, #f6fcee, #e0f4f2);
+        background: linear-gradient(to bottom, #f6fcee, #e0f4f2);
         width: 100%;
         height: 28px;
         bottom: -3px;
     }
 
     .nav-menu a.is-active {
-        color: #09c4e6;
+        color: #ffadad;
         opacity: 1;
     }   
 
@@ -1897,7 +2177,7 @@ select.form-input {
 
     .panel {
         position: relative; 
-        z-index: 1 !important; 
+        /* z-index: 1 !important;  */
     }
 
 
@@ -1913,10 +2193,22 @@ select.form-input {
         height: auto;
     }
 
-    .scroll-line {
-        height: 350px;
+    .concept.panel {
+        z-index: 0;
+        padding-top: 300px;
     }
 
+    .scroll-line {
+        height: 500px;
+        z-index: 100;
+    }
+
+    .hero-scroll {
+        bottom: -20%;
+    }
+
+
+ 
     .episode-grid {
         display: block;
         overflow-x: visible;
@@ -2088,7 +2380,71 @@ select.form-input {
 
 }
 
+@media (max-width: 550px) {
 
+    .style-sub {
+        margin-bottom: 5px;
+    }
+
+    .st-br {
+        display: block;
+    }
+
+    .st-span{
+        display: none;
+    }
+
+    .st-span-sp {
+        display: block;
+    }
+
+    .style-container {
+        width: 80%;
+    }
+
+    .style-desc {
+        padding-right: 10px;
+    }
+
+    .style-item.is-visible {
+        margin: 40px auto;
+    }
+
+    .thanks .main-title {
+        font-size: 10vw;
+    }
+
+    .thanks .sub-title {
+        font-size: 3.5vw
+    }
+
+    .thanks .lead-text {
+        font-size: 4vw;
+    }
+
+    .thanks-br {
+        display: block;
+    }
+
+    .sub-br {
+        display: none;
+    }
+
+    .thanks .note-text {
+        font-size: 3vw;
+    }
+
+    .home-btn {
+        padding: 4vw 2vw;
+    }
+
+    .back-link a {
+        font-size: 3vw;
+    }
+
+
+
+}
 
 
 @media (max-width: 480px) {

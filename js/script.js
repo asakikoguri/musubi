@@ -50,10 +50,10 @@ const initPlanCarousel = () => {
 
     const getScrollAmount = () => container.offsetWidth;
 
-    // ★ 初期位置を「2枚目（1つ分の幅）」に設定する関数
+    // ★ 初期位置を「1枚目」に設定する関数
     const setInitialPosition = () => {
-        const startPos = getScrollAmount(); 
-        container.scrollLeft = startPos;
+        // 0はコンテナの左端（1枚目の先頭）を指します
+        container.scrollLeft = 0;
     };
 
     // 初回実行
@@ -362,3 +362,6 @@ window.addEventListener('DOMContentLoaded', () => {
     console.error("要素が見つかりませんでした：js-hamburger または js-nav がHTMLにありません");
   }
 });
+
+
+

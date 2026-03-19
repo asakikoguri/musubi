@@ -11,8 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <script src="js/script.js"></script>
 </head>
-<body>
-
+<body class="home">
 
     <button class="hamburger" id="js-hamburger">
         <span></span>
@@ -23,7 +22,8 @@
         <ul>
             <li><a href="#top">Top</a></li>
             <li><a href="#concept">Concept</a></li>
-            <li><a href="#about">About</a></li>
+            <li class="pc-about"><a href="#about">About us</a></li>
+            <li class="sp-about"><a href="about.html">About us</a></li>
             <li><a href="#style">Style</a></li>
             <li><a href="#plan">Plan</a></li>
             <li><a href="#schedule">Schedule</a></li>
@@ -31,7 +31,6 @@
         </ul>
     </nav>
 
-    
 
     <div id="top" class="area-anchor"></div>
     <header class="panel">
@@ -50,20 +49,8 @@
         </div>
     </header>
 
-     
 
     <main> 
-
-        <!-- <div class="fixed-bg-list">
-            <div class="bg-item" data-section="top">TOP</div>
-            <div class="bg-item" data-section="concept">CONCEPT</div>
-            <div class="bg-item" data-section="about">ABOUT</div>
-            <div class="bg-item" data-section="style">STYLE</div>
-            <div class="bg-item" data-section="plan">PLAN</div>
-            <div class="bg-item" data-section="schedule">SCHEDULE</div>
-            <div class="bg-item" data-section="contact">CONTACT</div>
-        </div> -->
-
         <div id="concept" class="area-anchor"></div>
         <section class="concept panel">
             <div class="heading-group">
@@ -87,7 +74,7 @@
         </section>
 
         <div id="about" class="area-anchor"></div>
-        <section class="about-us panel">
+        <section id="about-us" class="about-us panel">
             <div class="heading-group">
                 <h2 class="main-title">about us</h2>
                 <p class="sub-title">私たちについて</p>
@@ -140,12 +127,19 @@
                     </div>
                 </div>
 
+                <div class="btn-wrapper">
+                    <a href="index.html#about" class="back-home-btn">トップページへ戻る</a>
+                </div>
+
             </div>
         </section>
 
-        
+        <!-- <section class="btn-wrapper">
+            <a href="#" class="concept-btn">About us</a>
+            <p>私たちについて詳しく見る</p>
+        </section> -->
 
-        <!-- <div class="concept btn-wrapper">
+        <div class="btn-wrapper">
             <a href="#" class="concept-btn">あたらしい結婚のカタチとは？</a>
 
             <div class="dot-deco">
@@ -153,7 +147,8 @@
                 <span></span>
                 <span></span>
             </div>
-        </div> -->
+        </div>
+
 
         <div id="style" class="area-anchor"></div>
         <section class="style panel">
@@ -170,8 +165,8 @@
                         </div>
                         <div class="style-content">
                             <p class="style-desc">
-                                撮影のあとは家族や大切な友人に晴れ姿をお披露目。<br>
-                                その後は会食会ではみんなで食を囲み<br class="style-br">アットホームな食事会を楽しみます
+                                撮影のあとは、家族や大切な方に晴れ姿をお披露目。<br>
+                                その後は皆で食卓を囲み、<br class="st-br">心温まるアットホームなひとときを楽しみます。
                             </p>
                         </div>
                     </div>
@@ -188,8 +183,10 @@
                         </div>
                         <div class="style-content">
                             <p class="style-desc">
-                                大切な方々に結婚の証人となっていただいた後は、<br class="style-br">オリジナルの<br>
-                                ドリンクやアペタイザーでゲストをおもてなし<br class="style-br">
+                                大切な方々に結婚の証人となっていただいた後は、<br>
+                                こだわりのドリンクやアペタイザーで、<span class="st-span">心からのおもてなしを。</span><br>
+                                <span class="st-span-sp">ゲスト一人ひとりと感謝を分かち合う時間を。</span>
+                                
                             </p>
                         </div>
                     </div>
@@ -206,8 +203,9 @@
                         </div>
                         <div class="style-content">
                             <p class="style-desc">
-                                お気に入りのレストランなど、<br class="style-br">料理にこだわりたい方にオススメ<br>
-                                披露宴よりもカジュアルに、<br class="style-br">簡単なセレモニーを行うことも可能です
+                                馴染みのレストランで、美食を愉しむひととき。<br>
+                                披露宴よりもカジュアルに、<br class="st-br">誓いのセレモニーを組み合わせることも。<br>
+                                
                             </p>
                         </div>
                     </div>
