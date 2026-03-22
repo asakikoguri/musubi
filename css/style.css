@@ -39,7 +39,7 @@ section {
     justify-content: center;
     align-items: center;
     box-sizing: border-box;
-    padding: 60px 20px;
+    padding: 30px 20px;
     scroll-margin-top: 0;
 }
 
@@ -243,6 +243,7 @@ section {
     width: 100vw;
     height: 100vh; 
     position: sticky;   
+    position: -webkit-sticky;
     scroll-snap-type: y mandatory;
     top: 0;  
     
@@ -629,7 +630,7 @@ section {
 }
 
 .plan-section .heading-group {
-    margin-bottom: 50px !important;
+    margin: 30px 0 50px 0;
 }
 
 @media (max-width: 800px) {
@@ -1483,32 +1484,35 @@ select.form-input {
     display: none;
 }
 
+.back-home-btn{
+    display: none;
+}
+
 
 
 @media (max-width: 1300px) {
     .number {
-    font-size: 2rem;
+        font-size: 2rem;
     }
 
 
     .episode-grid {
         display: flex;
-        overflow-x: auto;
-        scroll-snap-type: x mandatory;
+        overflow-x: hidden;
+        /* scroll-snap-align: center; */
+        /* scroll-snap-type: x mandatory; */
         gap: 20px;
-
-        /* --- 表示幅の調整 --- */
-        width: calc(100% - 300px); /* 左右150pxずつ空ける計算 */
-        margin: 0 auto;            /* 中央寄せ（固定メニューが片側なら margin-left: 150px などに変更） */
+        overflow-x: hidden;
+        width: calc(100% - 300px);
+        margin: 0 auto;
         
-        /* カードの「チラ見せ」用パディング（コンテナの内側の余白） */
         padding: 20px 50px 40px; 
         
         box-sizing: border-box;
         scrollbar-width: none;
         -webkit-overflow-scrolling: touch;
         cursor: grab;
-        user-select: none; /* ドラッグ中に文字が選択されるのを防ぐ */
+        user-select: none; 
     }
 
     .episode-grid:active {
@@ -1519,12 +1523,18 @@ select.form-input {
         flex: 0 0 70%; 
         scroll-snap-align: center; 
         box-sizing: border-box;
+        
     }
 
     .episode-card:hover {
         transform: translateY(-8px) rotate(0deg); 
         box-shadow: 10px 15px 30px rgba(0,0,0,0.1);
     }
+
+    .bottom-btns{
+        display: none;
+    }
+
 
 }
 
@@ -1754,17 +1764,17 @@ select.form-input {
     }
 
 
-    .heading-group {
+    /* .heading-group {
         margin: 0;
-    }
+    } */
 
     .hero-coment {
         font-size: clamp(1rem, 3vw,2rem);
     }
 
-    .scroll-line::before {
+    /* .scroll-line::before {
         background: linear-gradient(to bottom, transparent, #838383 50%, transparent);
-    }
+    } */
     
     
     .plan-label {
@@ -1863,10 +1873,10 @@ select.form-input {
         font-size: 0.8rem;
     }
 
-    .plan-section.panel {
+    /* .plan-section.panel {
         padding-top: 80px;
         padding-bottom: 40px;
-    }
+    } */
     .plan-section .heading-group {
         margin-bottom: 60px !important;
     }
@@ -1910,6 +1920,12 @@ select.form-input {
         
     }
 
+    .main-scroll {
+        height: 150px;
+        background-color: #fff;
+    }
+
+
     .pc-about {
         display: none; 
     }
@@ -1923,49 +1939,46 @@ select.form-input {
     }
 
     /* 「home」クラスがついている時（トップページ）だけ非表示にする */
-        .home #about, 
-        .home #about-us {
-            display: none !important;
-        }
+    .home #about, .home #about-us {
+        display: none !important;
+    }
 
-        /* about.html（単体ページ）では表示されるように上書き */
-        #about-us {
-            display: block !important; /* 強制的に表示 */
-            padding: 60px 20px;       /* スマホ用の余白 */
-        }
+    /* about.html（単体ページ）では表示されるように上書き */
+    #about-us {
+        display: block !important; /* 強制的に表示 */
+        padding: 60px 20px;       /* スマホ用の余白 */
+    }
 
-        /* 3列並びの事例カードを1列（縦並び）にする */
-        .episode-grid {
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-        .btn-wrapper {
-            display: flex;
-            justify-content: center;
-            
-        }
+    /* 3列並びの事例カードを1列（縦並び）にする */
+    .episode-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+        
+    .btn-wrapper {
+        display: flex;
+        justify-content: center;   
+    }
 
-        body:not(.home) #about-us { display: flex !important; }
+    body:not(.home) #about-us { display: flex !important; }
 
+    .back-home-btn {
+        display: inline-block;
+        padding: 15px 40px;
+        border: 1px solid #ccc;
+        color: #888;
+        text-decoration: none;
+        font-size: 14px;
+        letter-spacing: 0.1em;
+        transition: all 0.3s ease;
+        background: #fff;
+    }
 
-
-        .back-home-btn {
-            display: inline-block;
-            padding: 15px 40px;
-            border: 1px solid #ccc;
-            color: #888;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 0.1em;
-            transition: all 0.3s ease;
-            background: #fff;
-        }
-
-        .back-home-btn:hover {
-            background: #f9f9f9;
-            color: #444;
-            border-color: #999;
-        }
+    .back-home-btn:hover {
+        background: #f9f9f9;
+        color: #444;
+        border-color: #999;
+    }
 
     #about {
         scroll-margin-top: 100px; /* ヘッダーの高さ＋少しの余裕 */
@@ -1998,32 +2011,24 @@ select.form-input {
         transform: translateY(-2px);
     }
 
-    /* スマホでの調整 */
-    @media screen and (max-width: 768px) {
-        .about-page-bottom {
-            padding: 80px 20px;
-        }
-        .btn-back {
-            width: 100%;
-            max-width: 280px;
-            box-sizing: border-box;
-        }
+    .about-page-bottom {
+       padding: 80px 20px;
+    }
+    .btn-back {
+        width: 100%;
+        max-width: 280px;
+        box-sizing: border-box;
     }
 
 
-
-
-    /* スクロール位置の微調整（ヘッダーに被らないように） */
-    .area-anchor:target {
-        padding-top: 100px; /* ヘッダーの高さに合わせて調整 */
+    /* .area-anchor:target {
+        padding-top: 100px;
         margin-top: -100px;
-    }
+    } */
 
-    .plan-section.panel {
+    /* .plan-section.panel {
         padding-top: 150px;
-    }
-
-
+    } */
 
     .schedule {
         margin-bottom: 50px;
@@ -2059,7 +2064,7 @@ select.form-input {
         padding: 25px 50px;
         border-radius: 100px;
         text-decoration: none;
-        font-size: 16px;
+        font-size: 0.9rem;
         background: linear-gradient(to bottom, #f6fcee, #e0f4f2);
         transition: opacity 0.3s;
         margin: 50px auto 30px;
@@ -2195,7 +2200,7 @@ select.form-input {
 
     .concept.panel {
         z-index: 0;
-        padding-top: 300px;
+        /* padding-top: 300px; */
     }
 
     .scroll-line {
@@ -2311,8 +2316,8 @@ select.form-input {
 
 
     .cta-btn {
-        padding: 1.4rem 3.5rem;
-        font-size: 1rem;
+        padding: 1.7rem 3.8rem;
+        font-size: 1.1rem;
     }
 
     .sc-br {
@@ -2453,13 +2458,14 @@ select.form-input {
         gap: 12px;
     }
 
-    .cta-message {
+    /* .cta-message {
         font-size: 0.7rem;
-    }
+    } */
 
     .cta-btn {
         padding: 1.4rem 3rem;
-        font-size: 0.75rem;
+        font-size: 0.9rem;
+        text-wrap-mode: nowrap;
     }
 
     .hero-coment {
@@ -2472,5 +2478,44 @@ select.form-input {
 }
 
 
+@media (max-width: 400px) {
+    .footer-inner {
+        padding: 0;
+    }
 
+    .cta-area {
+        text-align-last: center;
+    }
+
+    .cta-message {
+        font-size: 3.5vw;
+    }
+
+    .cta-btn {
+        font-size: 3.5vw;
+        padding: 1.5rem 2.5rem;
+    }
+
+    .timeline {
+        margin: 0;
+    }
+
+    .style-card h3 {
+        font-size: 3vw;
+    }
+
+    .style-sub {
+        font-size: 2.5vw;
+    }
+
+    .section {
+        padding: 0;
+    }
+
+    .concept-btn {
+        padding: 20px 40px;
+        font-size: 3.5vw;
+    }
+
+}
 
