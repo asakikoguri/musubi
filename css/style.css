@@ -18,7 +18,8 @@ html {
 body {
     font-family: 'Ubuntu', 'Zen Maru Gothic', Meiryo, sans-serif;
     color: #6D6D6D;
-    
+    background: linear-gradient(to right, #f9ffcc 0%, #ffffff 50%, #b3e5fc 100%);
+
 }
 
 .area-anchor {
@@ -27,7 +28,6 @@ body {
     top: 0;
     visibility: hidden;
     height: 0;
-    overflow: hidden;
     pointer-events: none;
 }
 
@@ -43,14 +43,34 @@ section {
     scroll-margin-top: 0;
 }
 
+header {
+    display: fixed; 
+    position: sticky;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: 1; 
+}
+
+main {
+    position: relative;
+    z-index: 10; 
+    background-color: #fff;
+}
+
 
 /* メインビジュアルの箱 */
 .hero {
+    top: 0;
+    padding-top: 0;
+    margin: 0;
     position: relative;
     width: 100%;
     height: 100vh; 
     background: linear-gradient(to right, #f9ffcc 0%, #ffffff 50%, #b3e5fc 100%);
 }
+
+
 
 /* 左上のロゴ: hero-logo */
 .hero-logo {
@@ -64,8 +84,6 @@ section {
     -webkit-text-stroke: 0.9px #6d6d6d;
     text-stroke: 1.2px #676767;
 }
-
-
 
 
 /* 右側のナビゲーション: nav-menu */
@@ -109,7 +127,6 @@ section {
     z-index: -1; 
 }
 
-
 .nav-menu a:hover {
     opacity: 0.7;
     color: #398f82; 
@@ -119,7 +136,6 @@ section {
     background-color: #88c9bf;
     width: 100%;     
 }
-
 
 .nav-menu a.is-active {
     color: #386d65;
@@ -135,18 +151,12 @@ section {
 
 
 
-
-
-
-
-
 .hero-coment {
     position: absolute;
     top: 20%;
     left: 40px;
     font-size: 1.7rem;
     line-height: 1.8;
-    font-family: sans-serif;
     font-weight: 200;
 }
 
@@ -239,22 +249,21 @@ section {
 
 
 /* 共通 */
-.panel {
+/* .panel {
     width: 100vw;
     height: 100vh; 
     position: sticky;   
     position: -webkit-sticky;
     scroll-snap-type: y mandatory;
     top: 0;  
-    
-    display: flex;
+
     justify-content: center;
     align-items: center;
     font-size: 2rem;
 
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     box-sizing: border-box;
-}
+} */
 
 
 
@@ -314,6 +323,8 @@ section {
 
 .btn-wrapper {
     z-index: 3;
+    justify-self: center;
+    margin-top: 50px;
 }
 
 
@@ -451,11 +462,6 @@ section {
     padding-top: 15px;
 }
 
-
-
-.btn-wrapper {
-    display: none;
-}
 
 
 
@@ -981,61 +987,6 @@ section {
     font-family: serif; 
 }
 
-/* メニュー */
-/* .footer-nav {
-    display: flex;
-    justify-content: center; 
-    margin-bottom: 40px;
-}
-
-.footer-menu {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 40px; 
-    justify-content: center;
-    align-items: center;
-}
-
-.footer-menu li {
-    margin-bottom: 0;
-}
-
-.footer-menu a {
-    text-decoration: none;
-    color: #666;
-    font-size: 13px;
-    letter-spacing: 0.15em;
-    transition: all 0.3s ease;
-    display: inline-block;
-    position: relative;
-    padding: 5px 0;
-}
-
-
-.footer-menu a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 1px;
-    background-color: #d1edea; 
-    transition: all 0.3s ease;
-    transform: translateX(-50%);
-}
-
-.footer-menu a:hover {
-    opacity: 0.7;
-    color: #88c9bf;
-}
-
-.footer-menu a:hover::after {
-    width: 100%;
-} */
-/* フッター　　ここまで */
-
 
 
 
@@ -1424,14 +1375,8 @@ select.form-input {
 }
 
 .thanks .main-title {
-    /* margin-bottom: 10px; */
     font-size: 4rem;
     font-family: auto;
-    /* font-weight: 400;
-    letter-spacing: 0.1em;
-    color: transparent;
-    -webkit-text-stroke: 0.9px #6d6d6d;
-    text-stroke: 1.2px #676767; */
 }
 
 .thanks .sub-title {
@@ -1502,7 +1447,7 @@ select.form-input {
         /* scroll-snap-align: center; */
         /* scroll-snap-type: x mandatory; */
         gap: 20px;
-        overflow-x: hidden;
+        /* overflow-x: hidden; */
         width: calc(100% - 300px);
         margin: 0 auto;
         
@@ -1897,6 +1842,10 @@ select.form-input {
 
 @media (max-width: 768px) {
 
+    .bottom-btns{
+        display: block;
+    }
+
     .nav-menu {
         display: none;
     }
@@ -1957,10 +1906,12 @@ select.form-input {
         
     .btn-wrapper {
         display: flex;
-        justify-content: center;   
+        justify-content: center;
+        align-items: center; 
+        
     }
 
-    body:not(.home) #about-us { display: flex !important; }
+    /* body:not(.home) #about-us { display: flex !important; } */
 
     .back-home-btn {
         display: inline-block;
@@ -2021,14 +1972,6 @@ select.form-input {
     }
 
 
-    /* .area-anchor:target {
-        padding-top: 100px;
-        margin-top: -100px;
-    } */
-
-    /* .plan-section.panel {
-        padding-top: 150px;
-    } */
 
     .schedule {
         margin-bottom: 50px;
@@ -2039,9 +1982,6 @@ select.form-input {
         padding: left;
     } 
 
-    /* .timeline-line {
-        left: -30px;
-    } */
 
      .plan-flex-container {
         margin: 10px auto 30px;
@@ -2173,13 +2113,6 @@ select.form-input {
 
 
 
-    /* .fixed-bg-list {
-        position: fixed;
-        z-index: 2; 
-        pointer-events: none;
-    } */
-
-
     .panel {
         position: relative; 
         /* z-index: 1 !important;  */
@@ -2195,7 +2128,7 @@ select.form-input {
     
     .panel {
         box-shadow: none;
-        height: auto;
+        /* height: auto; */
     }
 
     .concept.panel {
@@ -2261,41 +2194,6 @@ select.form-input {
         opacity: 1;
     }
     
-    /* .fixed-bg-list {
-        position: fixed;
-        top: 60%;
-        left: 5%;
-        transform: translateY(-50%); 
-        z-index: 2;
-        pointer-events: none;
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .bg-item {
-        font-size: 4vw;
-        font-weight: 900;
-        font-family: 'Ubuntu', sans-serif;
-        line-height: 0.9;
-        color: transparent; 
-        -webkit-text-stroke: 1px rgba(0, 0, 0, 0.05);
-        transition: all 0.5s ease;
-        pointer-events: none;
-    }
-
-    .bg-item.is-active {
-        -webkit-text-stroke: 1px rgba(57, 143, 130, 0.5); 
-        color: rgba(57, 143, 130, 0.1); 
-        transform: translateX(10px);
-        z-index: 2;
-    }
-
-    .bg-item {
-        font-size: 13vw; 
-    } */
-
-
 }
 
 
@@ -2368,13 +2266,6 @@ select.form-input {
     /* 2. 開いている時の状態（!importantで確実に上書き） */
     .sp-menu.is-active {
         right: 0 !important;
-    }
-
-    /* 3. 注意！ .nav-menu 自体に固定の right を上書きしない */
-    /* もし右下に小さく配置したいのが「別のメニュー」ではなく
-       このSPメニューなら、閉じている時は -100% にする必要があります */
-    .nav-menu {
-        /* bottom: 10px; right: 4px; ← これが原因で常に表示されている可能性あり */
     }
     
     .name-inputs {
@@ -2457,10 +2348,6 @@ select.form-input {
         flex-direction: column;
         gap: 12px;
     }
-
-    /* .cta-message {
-        font-size: 0.7rem;
-    } */
 
     .cta-btn {
         padding: 1.4rem 3rem;

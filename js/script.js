@@ -194,21 +194,89 @@ window.addEventListener('scroll', function() {
 
 // エピソードカードのドラッグスクロール制御（1300以下の場合
 
+// const initEpisodeScroll = () => {
+//     const slider = document.querySelector('.episode-grid');
+//     if (!slider) return;
+
+//     const cards = slider.querySelectorAll('.episode-card');
+//     if (cards.length >= 2) {
+//         const targetCard = cards[1]; 
+//         const initialLeft = targetCard.offsetLeft - (slider.clientWidth / 2) + (targetCard.clientWidth / 2);
+//         slider.scrollLeft = initialLeft;
+//     }
+
+//     let isDown = false;
+//     let startX;
+//     let scrollLeft;
+
+//     slider.addEventListener('mousedown', (e) => {
+//         if (window.innerWidth > 1300) return;
+
+//         isDown = true;
+//         slider.classList.add('is-dragging');
+        
+//         startX = e.pageX - slider.getBoundingClientRect().left;
+//         scrollLeft = slider.scrollLeft;
+//     });
+
+//     const stopDragging = () => {
+//         isDown = false;
+//         slider.classList.remove('is-dragging');
+//     };
+
+//     slider.addEventListener('mouseleave', stopDragging);
+//     slider.addEventListener('mouseup', stopDragging);
+
+//     slider.addEventListener('mousemove', (e) => {
+//         if (!isDown || window.innerWidth > 1300) return;
+        
+//         e.preventDefault();
+//         const x = e.pageX - slider.getBoundingClientRect().left;
+//         const walk = (x - startX) * 2; 
+//         slider.scrollLeft = scrollLeft - walk;
+//     });
+// };
+
+// document.addEventListener('DOMContentLoaded', initEpisodeScroll);
+
 const initEpisodeScroll = () => {
     const slider = document.querySelector('.episode-grid');
     if (!slider) return;
 
+    // --- 【修正版】Case 02（2枚目）を初期位置にする関数 ---
+    const setInitialPosition = () => {
+        const cards = slider.querySelectorAll('.episode-card');
+        
+        if (cards.length >= 2) {
+            const targetCard = cards[1]; // 2番目のカード(Case 02)
+            
+            // コンテナの左端から対象カードまでの距離を計算
+            // offsetLeftを使うことで、paddingや幅が変わっても自動追従します
+            const scrollPos = targetCard.offsetLeft;
+
+            slider.scrollTo({
+                left: scrollPos,
+                behavior: 'instant' // 読み込み時は一瞬で移動
+            });
+        }
+    };
+
+    // 初期化の実行
+    setInitialPosition();
+    window.addEventListener('load', setInitialPosition);
+    window.addEventListener('resize', setInitialPosition);
+
+    // --- ドラッグスクロールの制御 ---
     let isDown = false;
     let startX;
     let scrollLeft;
 
     slider.addEventListener('mousedown', (e) => {
-        if (window.innerWidth > 1300) return;
-
+        // ドラッグを有効にするため、一時的にoverflowを許可する（ブラウザ挙動対策）
+        slider.style.overflowX = 'auto'; 
+        
         isDown = true;
         slider.classList.add('is-dragging');
-        
-        // 修正ポイント：要素の絶対位置からの相対座標を取得
         startX = e.pageX - slider.getBoundingClientRect().left;
         scrollLeft = slider.scrollLeft;
     });
@@ -216,16 +284,16 @@ const initEpisodeScroll = () => {
     const stopDragging = () => {
         isDown = false;
         slider.classList.remove('is-dragging');
+        // ドラッグが終わったら再度隠す（必要に応じて）
+        // slider.style.overflowX = 'hidden'; 
     };
 
     slider.addEventListener('mouseleave', stopDragging);
     slider.addEventListener('mouseup', stopDragging);
 
     slider.addEventListener('mousemove', (e) => {
-        if (!isDown || window.innerWidth > 1300) return;
-        
+        if (!isDown) return;
         e.preventDefault();
-        // 修正ポイント：要素の絶対位置からの相対座標を取得
         const x = e.pageX - slider.getBoundingClientRect().left;
         const walk = (x - startX) * 2; 
         slider.scrollLeft = scrollLeft - walk;
@@ -233,6 +301,7 @@ const initEpisodeScroll = () => {
 };
 
 document.addEventListener('DOMContentLoaded', initEpisodeScroll);
+
 
 
 
